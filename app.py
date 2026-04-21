@@ -1,4 +1,4 @@
-from graph import graph
+from src.graph import graph
 
 while True:
     query = input("Ask your legal question: ")
