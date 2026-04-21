@@ -1,7 +1,7 @@
 from langchain_community.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
-from langchain_community.embeddings import OllamaEmbeddingss
+from langchain_community.embeddings import OllamaEmbeddings
 
 def ingest_pdf(file_path):
     loader = PyPDFLoader(file_path)
@@ -13,7 +13,7 @@ def ingest_pdf(file_path):
     )
     chunks = splitter.split_documents(documents)
 
-    embeddings = OllamaEmbeddings(model="phi3")
+    embeddings = OllamaEmbeddings(model="tinyllama")
 
     vectordb = Chroma.from_documents(
         chunks,
