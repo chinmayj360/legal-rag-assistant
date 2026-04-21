@@ -6,9 +6,13 @@ def generate_answer(query, docs):
     context = "\n\n".join([doc.page_content for doc in docs])
 
     prompt = f"""
-You are a legal assistant.
-Answer ONLY using the context below.
-Explain in simple terms.
+You are a legal document assistant.
+
+STRICT RULES:
+- Answer ONLY using the provided context
+- Do NOT make up information
+- If answer is not found, say: "Not found in document"
+- Keep answer simple and clear
 
 Context:
 {context}
