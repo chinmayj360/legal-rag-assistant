@@ -2,7 +2,7 @@ from langchain_community.vectorstores import Chroma
 from langchain_community.embeddings import OllamaEmbeddings
 
 def get_retriever():
-    embeddings = OllamaEmbeddings(model="phi3")
+    embeddings = OllamaEmbeddings(model="tinyllama")
 
     vectordb = Chroma(
         persist_directory="embeddings/",
