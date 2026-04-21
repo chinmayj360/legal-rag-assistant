@@ -115,6 +115,9 @@ python app.py
 * Ensure your PDFs are placed inside the `data/` directory before ingestion.
 * The embeddings will be stored locally in the `embeddings/` folder.
 * The system runs fully offline once dependencies and models are set up.
+* Used ollama tinyllama model in the current version due to hardware restriction (8GB RAM) if your system has better RAM(24GB+) with RTX 2050 and above i would suggest go go with better models like lamma3 for better results and minimal/null halucinations
+* For systems with decent RAM utilizations (8GB+) use phi3 model which is better than tinylamma model as the parameters required is higher in this case
+* This project runs LLM locally on the system, if you want to go with API rather than local LLM (ollama) i would suggest OpenAi,Gemini Apis'(Pay per credits used)
 
 ---
 
