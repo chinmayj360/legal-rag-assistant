@@ -1,6 +1,6 @@
-from langchain.chat_models import ChatOpenAI
+from langchain_community.chat_models import ChatOllama
 
-llm = ChatOpenAI(model="gpt-4", temperature=0)
+llm = ChatOllama(model="phi3")
 
 def generate_answer(query, docs):
     context = "\n\n".join([doc.page_content for doc in docs])
