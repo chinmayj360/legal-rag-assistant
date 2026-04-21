@@ -1,8 +1,8 @@
 from langchain_community.vectorstores import Chroma
-from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain_community.embeddings import OllamaEmbeddings
 
 def get_retriever():
-    embeddings = OpenAIEmbeddings()
+    embeddings = OllamaEmbeddings(model="phi3")
 
     vectordb = Chroma(
         persist_directory="embeddings/",
