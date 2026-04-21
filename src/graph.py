@@ -1,11 +1,16 @@
 from langgraph.graph import StateGraph
-from retriever import get_retriever
-from generator import generate_answer
-from router import route_query
-from hitl import escalate_to_human
 
-class State(dict):
-    pass
+from src.retriever import get_retriever
+from src.generator import generate_answer
+from src.router import route_query
+from src.hitl import escalate_to_human
+
+from typing import TypedDict
+
+class State(TypedDict):
+    query: str
+    answer: str
+    route: str
 
 retriever = get_retriever()
 
