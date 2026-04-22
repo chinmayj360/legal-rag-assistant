@@ -1,8 +1,10 @@
-from langchain_community.vectorstores import Chroma
-from langchain_community.embeddings import OllamaEmbeddings
+from langchain_chroma import Chroma
+from langchain_community.embeddings import HuggingFaceEmbeddings
 
 def get_retriever():
-    embeddings = OllamaEmbeddings(model="tinyllama")
+    embeddings = HuggingFaceEmbeddings(
+        model_name="all-MiniLM-L6-v2"
+    )
 
     vectordb = Chroma(
         persist_directory="embeddings/",
