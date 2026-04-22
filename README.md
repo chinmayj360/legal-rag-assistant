@@ -82,42 +82,40 @@ project/
 
 ```bash
 pip install langchain langchain-community langgraph chromadb pypdf openai tiktoken
+pip install sentence-transformers
 ```
 
-### 2️⃣ Start Ollama Server
+### 2️⃣ Set Groq API Key
 
 ```bash
-ollama serve
+ $env:GROQ_API_KEY="your_key_here"
 ```
 
-### 3️⃣ Pull Required Model (if not already installed)
-
-```bash
-ollama pull tinyllama
-```
-
-### 4️⃣ Ingest Documents
+### 3️⃣ Ingest Documents
 
 ```bash
 python run_ingest.py
 ```
 
-### 5️⃣ Run the Application
+### 4️⃣ Run the Application
 
 ```bash
-python app.py
+    python app.py
 ```
 
+
 ---
+##Notes
 
-## 💡 Notes
-
-* Ensure your PDFs are placed inside the `data/` directory before ingestion.
-* The embeddings will be stored locally in the `embeddings/` folder.
-* The system runs fully offline once dependencies and models are set up.
-* Used ollama tinyllama model in the current version due to hardware restriction (8GB RAM) if your system has better RAM(24GB+) with RTX 2050 and above i would suggest go go with better models like lamma3 for better results and minimal/null halucinations
-* For systems with decent RAM utilizations (8GB+) use phi3 model which is better than tinylamma model as the parameters required is higher in this case
-* This project runs LLM locally on the system, if you want to go with API rather than local LLM (ollama) i would suggest OpenAi,Gemini Apis'(Pay per credits used)
+*Ensure your PDFs are placed inside the data/ directory before ingestion.
+*The embeddings are stored locally in the embeddings/ folder.
+*This project uses HuggingFace embeddings (all-MiniLM-L6-v2) for retrieval.
+*The LLM is powered via Groq API using llama-3.3-70b-versatile, providing fast and high-quality responses.
+*Compared to local models, API-based LLMs:
+*Provide significantly better reasoning
+*Reduce hallucinations
+*Do not depend on system RAM/GPU
+*Ensure your API key is set before running the application.
 
 ---
 
